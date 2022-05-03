@@ -1,7 +1,7 @@
 <?php
 function get_products_by_category($tbl_name) { // get_records_by_tablename($table_name)
     global $db;
-    $query = str_replace('{}',$tbl_name,'SELECT * FROM `{}`');
+    $query = str_replace('{}',$tbl_name,'SELECT * FROM {}');
     $statement = $db->prepare($query);
     //$statement->bindValue(':table_name', $tbl_name);  // Didnt work to bind to :table_name, seems like only works in WHERE clause?
     $statement->execute(); // add index column key?

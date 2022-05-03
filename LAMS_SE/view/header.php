@@ -1,4 +1,3 @@
-<?php session_start() ?>
 <!DOCTYPE html>
 <html>
 
@@ -27,74 +26,76 @@
         <a href="http://localhost/LAMS_SE/about_us">About</a>
 
         <?php
-			if ( session_id() != "" )
+			if ( session_id() == "")
+			{ session_start(); }
+			if ( isset($_SESSION['UNAME'] ) )
 			{
-				if ( $_SESSION['UNAME'] != "")
+				// Does User have priviledges and on what level?
+				$UNAME = "";
+				$UPASSWD = "";
+				$matched_user = false;
+				if ($_SERVER["REQUEST_METHOD"] == "POST"){
+					if ( empty($_POST["in_upasswd"]))
+					{ $UPASSWD = ""; }
+					else
+					{ $UPASSWD = md5( $_POST["in_upasswd"] ); }
+
+					if ( empty($_POST["in_uname"]) )
+					{ $UNAME = ""; }
+					else
+					{ $UNAME = ( $_POST["in_uname"]); }
+				}
+				if ( empty($_SESSION["UNAME"]))
 				{
-					// Does User have priviledges and on what level?
-					$UNAME = "";
-					$UPASSWD = "";
-					$matched_user = false;
-					if ($_SERVER["REQUEST_METHOD"] == "POST"){
-						if ( empty($_POST["in_upasswd"]))
-						{ $UPASSWD = ""; }
-						else
-						{ $UPASSWD = md5( $_POST["in_upasswd"] ); }
+					$_SESSION["UNAME"] = $UNAME;
+					$_SESSION["UPASSWD"] = $UPASSWD;
+				}
+				else
+				{
+					$UNAME = $_SESSION["UNAME"];
+					$UPASSWD = $_SESSION["UPASSWD"];
+				}
 
-						if ( empty($_POST["in_uname"]) )
-						{ $UNAME = ""; }
-						else
-						{ $UNAME = ( $_POST["in_uname"]); }
-					}
-					if ( empty($_SESSION["UNAME"]))
-					{
-						$_SESSION["UNAME"] = $UNAME;
-						$_SESSION["UPASSWD"] = $UPASSWD;
-					}
+				// echo "<span>UNAME : ".$UNAME."</span><br>";
+				// echo "<span>UPASSWD : ".$UPASSWD."</span><br>";
+
+				if ( $UNAME != "") // Test connection
+				{ 
+					if ( file_exists('../model/database.php') )
+					{ require_once('../model/database.php'); }
 					else
-					{
-						$UNAME = $_SESSION["UNAME"];
-						$UPASSWD = $_SESSION["UPASSWD"];
+					{ require_once('./model/database.php'); }
+					try {
+						$query = "SELECT * FROM flights";
+						$statement = $db->prepare($query);
+						$statement->execute();
+						$result = $statement->fetch();
+						$statement->closeCursor();
+					} catch (PDOException $e) {
+						$error_message = $e->getMessage();
+						exit();
 					}
+					if ( empty($error_message) )
+					{ $matched_user = true; }
+				}
 
-					// echo "<span>UNAME : ".$UNAME."</span><br>";
-					// echo "<span>UPASSWD : ".$UPASSWD."</span><br>";
-
-					if ( $UNAME != "") // Test connection
-					{ 
-						require_once('../model/database.php');
-						try {
-							$query = "SELECT * FROM flights";
-							$statement = $db->prepare($query);
-							$statement->execute();
-							$result = $statement->fetch();
-							$statement->closeCursor();
-						} catch (PDOException $e) {
-							$error_message = $e->getMessage();
-							exit();
-						}
-						if ( empty($error_message) )
-						{ $matched_user = true; }
-					}
-
-					if ( $matched_user )
-					{
-						echo (
-						"<a href='http://localhost/LAMS_SE/settings'>".
+				if ( $matched_user )
+				{
+					echo (
+					"<a href='http://localhost/LAMS_SE/settings'>".
+					"<img style='height: 40px;' src='http://localhost/LAMS_SE/images/login-icon.png' alt='login-icon'></img>".
+					"<span id='logged_in_uname'>".$UNAME.
+					"</span></a>"
+					);
+				}
+				else
+				{
+					echo (
+						"<a href='http://localhost/LAMS_SE/sign_in'>".
 						"<img style='height: 40px;' src='http://localhost/LAMS_SE/images/login-icon.png' alt='login-icon'></img>".
-						"<p id='logged_in_uname'>".$UNAME.
-						"</p></a>"
+						"<span id='logged_in_uname'></span>Sign In".
+						"</a>"
 						);
-					}
-					else
-					{
-						echo (
-							"<a href='http://localhost/LAMS_SE/sign_in'>".
-							"<img style='height: 40px;' src='http://localhost/LAMS_SE/images/login-icon.png' alt='login-icon'></img>".
-							"Sign In".
-							"</a>"
-							);
-					}
 				}
 			}
 			else
@@ -102,7 +103,7 @@
 				echo (
 					"<a href='http://localhost/LAMS_SE/sign_in'>".
 					"<img style='height: 40px;' src='http://localhost/LAMS_SE/images/login-icon.png' alt='login-icon'></img>".
-					"Sign In".
+					"<span id='logged_in_uname'></span>Sign In".
 					"</a>"
 					);
 			}

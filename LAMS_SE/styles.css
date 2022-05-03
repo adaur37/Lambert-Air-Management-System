@@ -392,6 +392,11 @@ main table tr {
   vertical-align: top;
 }
 
+.home_benefits_img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
 /* ID DEFINITIONS */
 
 #login_container th{

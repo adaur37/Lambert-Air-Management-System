@@ -89,3 +89,4 @@
     ?>
 </main>
 <?php include '../view/footer.php'; ?>
+<script> if ( document.getElementById("logged_in_uname").innerHTML == "") { window.location.reload(true); } </script>

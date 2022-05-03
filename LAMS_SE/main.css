@@ -25,6 +25,11 @@ body {
 header {
     border-bottom: 2px solid black;
     padding: .5em 0;
+
+    background-image: url("./images/tranlogo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: right;
 }
 
 main {
@@ -135,6 +140,7 @@ form {
     text-align: center;
     background-color: #474e5d;
     color: white;
+    text-align: left;
 }
 
 .container{

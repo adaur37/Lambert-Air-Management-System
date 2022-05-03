@@ -9,15 +9,20 @@
 
     <?php require_once("../view/header.php"); ?>
     <?php 
+        if ( session_id() == "")
+        { session_start(); }
 
         if( isset($_SESSION['UNAME'] ) )
-        { unset($_SESSION['UNAME']); } 
+        { ; } //retired, used to use to 'log out' before functionality created by unset() method
         else
         { $_SESSION['UNAME'] = ""; }
         if( isset($_SESSION['UPASSWD'] ) )
-        { unset($_SESSION['UPASSWD']); } 
+        { ; } //retired, used to use to 'log out' before functionality created by unset() method
         else
         { $_SESSION['UPASSWD'] = ""; }
+
+        if ( isset($_SESSION['UNAME']) AND isset($_SESSION['UPASSWD']) )
+        { header("Location: manager_home.php" ); }
     ?>
     <script>
         function submit_toast() {

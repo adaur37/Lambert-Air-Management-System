@@ -1,7 +1,7 @@
 <?php require_once("../view/header.php"); ?>
 <div class="about-us">
   <h1>About the LAMS Team</h1>
-  <p>Some info about who we are as a team, and what roles everyone is responsible for.</p>
+  <p style='color: white;'>Some info about who we are as a team, and what roles everyone is responsible for.</p>
 </div>
 
 <h2 style="text-align:center">LAMS Team</h2>
@@ -9,13 +9,13 @@
 <!--  Andrew  -->
    <div class="column">
      <div class="card">
-       <img src="ADLogo.PNG" alt="Andrew" style="width:100%">
+       <img src="../images/ADLogo.PNG" alt="Andrew" style="width:100%">
        <div class="container">
          <h2>Andrew Daur</h2>
          <p class="title">------</p>
          <p>lorem10</p>
          <p>ad1297@usnh.com</p>
-         <p><button class="button">Contact</button></p>
+         <p><input type="button" value="Contact"></input> </p>
        </div>
      </div>
   </div>
@@ -23,13 +23,13 @@
 <!-- Matthew -->
   <div class="column">
     <div class="card">
-       <img src="MLLogo.PNG" alt="Matthew" style="width:100%">
+       <img src="../images/MLLogo.PNG" alt="Matthew" style="width:100%">
        <div class="container">
          <h2>Matthew Lavin</h2>
          <p class="title">------</p>
          <p>lorem10</p>
          <p>ad1297@usnh.com</p>
-         <p><button class="button">Contact</button></p>
+         <p><input type="button" value="Contact"></input> </p>
         </div>
      </div>
   </div>
@@ -37,13 +37,13 @@
 <!--  Josh  -->
   <div class="column">
      <div class="card">
-       <img src="JSLogo.PNG" alt="Josh" style="width:100%">
+       <img src="../images/JSLogo.PNG" alt="Josh" style="width:100%">
        <div class="container">
          <h2>Joshua Snider</h2>
          <p class="title">------</p>
          <p>lorem10</p>
          <p>ad1297@usnh.com</p>
-         <p><button class="button">Contact</button></p>
+         <p><input type="button" value="Contact"></input> </p>
        </div>
       </div>
     </div>

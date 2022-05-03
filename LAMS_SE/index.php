@@ -24,14 +24,14 @@
         <h3> More Benefits Include: </h3>
         <ul>
             <li>
-                <img class="home_benefits_img" src="" alt="revenue_go_up" />
+                <img class="home_benefits_img" src="./images/revenue.png" alt="revenue_go_up" />
                 <p style="margin-left: 60px;" /><div class="home_benefits_triangle" />
                 <div class="home_benefits_text">
                     <span>Increases revenue by increasing efficiency and throughput</span>
                 </div>
             </li>
             <li>
-                <img class="home_benefits_img" src="" alt="timecost_go_down" />
+                <img class="home_benefits_img" src="./images/time.png" alt="timecost_go_down" />
                 <p style="margin-left: 60px;" /><div class="home_benefits_triangle" />
                 <div class="home_benefits_text">
                     <span>Minimize lost time for arriving and departing passengers, maximizing customer satisfaction</span>

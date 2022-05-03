@@ -5,7 +5,8 @@
  * Apr292022
  * Serves user with chosen action for database data editing, can add, delete, or list, list is default if nothing chosen
 *//////////////////////////////////////////////////////////////////////////////////////////////////
-
+    if ( session_id() != "")
+    { session_start(); }
     require_once("../view/header.php");
 /*    echo "<h1 style='display: inline-block; margin-right: 10%;'>ADMIN ONLY - Product Manager</h1>
         <a style='margin-left: 10%;' href='http://localhost/jSnider_jsBookshop/product_manager'><input type='button' value='LOG OUT'/></a>
@@ -84,7 +85,6 @@
         {
             $category_id = filter_input(INPUT_GET, 'category_id');
             if ($category_id == NULL || $category_id == FALSE) {
-		    $category_id = 'airlines';
             }
             $category_name = get_category_name($category_id);
             $categories = get_categories();
