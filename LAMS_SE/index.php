@@ -1,4 +1,4 @@
-<?php include 'view/header.php'; ?>
+<?php include("view/header.php"); ?>
 
 <!-- /*/////////////////////////////////////////////////////////////////////////////////////////////////
  * Landing Page : index.php
@@ -52,4 +52,4 @@
         </div>
     </div>
 </main>
-<?php include 'view/footer.php'; ?>
+<?php include("view/footer.php"); ?>

@@ -1,4 +1,4 @@
-<?php include_once __DIR__ . '/../view/header.php'; ?>
+<?php include_once(__DIR__ . "/../view/header.php"); ?>
 <main>
     <h1>Database Error</h1>
     <p class="first_paragraph">There was an error connecting to the database.</p>
@@ -18,4 +18,4 @@
             );
     ?>
 </main>
-<?php include_once __DIR__ . '/../view/footer.php'; ?>
+<?php include_once(__DIR__ . "/../view/footer.php"); ?>

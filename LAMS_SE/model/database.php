@@ -7,7 +7,7 @@
 *//////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-$dsn = 'mysql:host=127.0.0.1;port=3306;dbname=cs440_flightmgmtsys';
+$dsn = 'mysql:host=localhost;port=3306;dbname=cs440_flightmgmtsys';
 
 try {
 	if (session_id() != "")
@@ -27,7 +27,7 @@ try {
 	{ // action to take if a session is not opened (should be impossible if logging in)
 	//            $db = new PDO($dsn, "", ""); 
 	    if ( !empty($UNAME) )
-	    { $db = new PDO($dsn, $UNAME, strtoupper($UPASSWD) ); }
+	    { $db = new PDO($dsn, $UNAME, $UPASSWD ); }
 	    echo ("<script type='text/javascript'> console.log('[INFO] No user session found, variable fallback.' )</script> )" );
 	}
 } catch (PDOException $e) {
