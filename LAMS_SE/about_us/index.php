@@ -9,7 +9,7 @@
 <!--  Andrew  -->
    <div class="column">
      <div class="card">
-       <img src="" alt="Andrew" style="width:100%">
+       <img src="ADLogo.PNG" alt="Andrew" style="width:100%">
        <div class="container">
          <h2>Andrew Daur</h2>
          <p class="title">------</p>
@@ -23,7 +23,7 @@
 <!-- Matthew -->
   <div class="column">
     <div class="card">
-       <img src="" alt="Matthew" style="width:100%">
+       <img src="MLLogo.PNG" alt="Matthew" style="width:100%">
        <div class="container">
          <h2>Matthew Lavin</h2>
          <p class="title">------</p>
@@ -37,7 +37,7 @@
 <!--  Josh  -->
   <div class="column">
      <div class="card">
-       <img src="" alt="Josh" style="width:100%">
+       <img src="JSLogo.PNG" alt="Josh" style="width:100%">
        <div class="container">
          <h2>Joshua Snider</h2>
          <p class="title">------</p>
