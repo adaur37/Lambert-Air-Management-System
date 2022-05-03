@@ -62,7 +62,7 @@ session_start();
 
                 if ( $UNAME != "") // Test connection
                 { 
-                    require_once('..\model\database.php');
+                    require_once(__DIR__ . '/../model/database.php');
                     try {
                         $query = "SELECT * FROM flights";
                         $statement = $db->prepare($query);
@@ -80,8 +80,8 @@ session_start();
                 if ( $matched_user )
                 {
                     echo (
-                    "<a href='http://localhost/jSnider_LAMS/settings'>".
-                    "<img style='height: 40px;' src='http://localhost/jSnider_LAMS/images/login-icon.png' alt='login-icon'></img>".
+                    "<a href='http://localhost/LAMS_SE/settings'>".
+                    "<img style='height: 40px;' src='http://localhost/LAMS_SE/images/login-icon.png' alt='login-icon'></img>".
                     "<p id='logged_in_uname'>".$UNAME.
                     "</p></a>"
                     );
@@ -89,8 +89,8 @@ session_start();
                 else
                 {
                     echo (
-                        "<a href='http://localhost/jSnider_LAMS/sign_in'>".
-                        "<img style='height: 40px;' src='http://localhost/jSnider_LAMS/images/login-icon.png' alt='login-icon'></img>".
+                        "<a href='http://localhost/LAMS_SE/sign_in'>".
+                        "<img style='height: 40px;' src='http://localhost/LAMS_SE/images/login-icon.png' alt='login-icon'></img>".
                         "Sign In".
                         "</a>"
                         );
@@ -99,8 +99,8 @@ session_start();
             else
             {
                 echo (
-                    "<a href='http://localhost/jSnider_LAMS/sign_in'>".
-                    "<img style='height: 40px;' src='http://localhost/jSnider_LAMS/images/login-icon.png' alt='login-icon'></img>".
+                    "<a href='http://localhost/LAMS_SE/sign_in'>".
+                    "<img style='height: 40px;' src='http://localhost/LAMS_SE/images/login-icon.png' alt='login-icon'></img>".
                     "Sign In".
                     "</a>"
                     );
