@@ -6,8 +6,7 @@
  * Serves user with chosen action for database data editing, can add, delete, or list, list is default if nothing chosen
 *//////////////////////////////////////////////////////////////////////////////////////////////////
 
-    session_start();
-    require_once("../view/header.php");
+require_once("../view/header.php");
 /*    echo "<h1 style='display: inline-block; margin-right: 10%;'>ADMIN ONLY - Product Manager</h1>
         <a style='margin-left: 10%;' href='http://localhost/jSnider_jsBookshop/product_manager'><input type='button' value='LOG OUT'/></a>
         <br>";
