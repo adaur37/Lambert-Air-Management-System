@@ -85,6 +85,7 @@
         {
             $category_id = filter_input(INPUT_GET, 'category_id');
             if ($category_id == NULL || $category_id == FALSE) {
+		    $category_id = 'airlines';
             }
             $category_name = get_category_name($category_id);
             $categories = get_categories();
