@@ -9,7 +9,6 @@
 
     <?php require_once("../view/header.php"); ?>
     <?php 
-        session_start();
 
         if( isset($_SESSION['UNAME'] ) )
         { unset($_SESSION['UNAME']); } 
