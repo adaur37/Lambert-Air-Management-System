@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +15,7 @@
 <head>
     <title>LAMS Flight Manager</title>
     <link rel="stylesheet" type="text/css"
-          href="http://localhost/jSnider_LAMS/styles.css">
+          href="http://localhost/LAMS_SE/styles.css">
 </head>
 
 <!-- the body section -->
@@ -20,13 +23,13 @@
 <header>
     <h1 style="display: inline-block;"> Lambert Air </h1>
     <div style="display:inline-block; margin-left: 30%;">
-        <a href="http://localhost/jSnider_LAMS/">Home</a>
-        <a href="http://localhost/jSnider_LAMS/product_manager">Admin</a>
-        <a href="http://localhost/jSnider_LAMS/quote">Quote</a>
-        <a href="http://localhost/jSnider_LAMS/about_us">About</a>
+        <a href="http://localhost/LAMS_SE/">Home</a>
+        <a href="http://localhost/LAMS_SE/product_manager">Admin</a>
+        <a href="http://localhost/LAMS_SE/quote">Quote</a>
+        <a href="http://localhost/LAMS_SE/about_us">About</a>
 
         <?php
-            if ( $_SESSION['UNAME'] != "")
+            if (isset($_SESSION['UNAME']) && $_SESSION['UNAME'] != "")
             {
                 // Does User have priviledges and on what level?
                 $UNAME = "";
@@ -59,7 +62,7 @@
 
                 if ( $UNAME != "") // Test connection
                 { 
-                    require_once('../model/database.php');
+                    require_once('..\model\database.php');
                     try {
                         $query = "SELECT * FROM flights";
                         $statement = $db->prepare($query);
