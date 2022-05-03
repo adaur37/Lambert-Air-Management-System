@@ -23,12 +23,12 @@ function get_product($table_name, $key) { //get_record($table_name, $key)
     return $product;
 }
 
-function delete_product($product_id) {
+function delete_product($table, $primary_key) {
     global $db;
-    $query = 'DELETE FROM products
-              WHERE productID = :product_id';
+    $query = str_replace('{}', $table, 'DELETE FROM {} WHERE '); 
+    $query = $query.'{}'; // primary_key[0] is column name, primary_key[1] is value of said column.
+    $query = str_replace('{}', "".$primary_key[0]." ='".$primary_key[1]."'", $query );
     $statement = $db->prepare($query);
-    $statement->bindValue(':product_id', $product_id);
     $statement->execute();
     $statement->closeCursor();
 }
