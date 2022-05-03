@@ -10,10 +10,15 @@
     <?php require_once("../view/header.php"); ?>
     <?php 
         session_start();
-        if( $_SESSION['UNAME'] != "" )
+
+        if( isset($_SESSION['UNAME'] ) )
         { unset($_SESSION['UNAME']); } 
-        if( $_SESSION['UPASSWD'] != "" )
+        else
+        { $_SESSION['UNAME'] = ""; }
+        if( isset($_SESSION['UPASSWD'] ) )
         { unset($_SESSION['UPASSWD']); } 
+        else
+        { $_SESSION['UPASSWD'] = ""; }
     ?>
     <script>
         function submit_toast() {

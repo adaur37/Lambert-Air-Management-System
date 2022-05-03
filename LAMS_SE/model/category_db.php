@@ -16,8 +16,10 @@ function get_category_name($category_id) {
     $statement->bindValue(':category_id', $category_id);
     $statement->execute();    
     $category = $statement->fetch();
-    $statement->closeCursor();    
-    $category_name = $category['Table_name'];
+    $statement->closeCursor();  
+    $category_name = false;
+    if ($category != false)  
+    { $category_name = $category['Table_name']; }
     return $category_name;
 }
 ?>

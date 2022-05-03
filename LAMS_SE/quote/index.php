@@ -24,28 +24,28 @@
         <ul>
             <li>
                 <div>
-                    <img style='height: 40px;' src='http://localhost/jSnider_LAMS/images/login-icon.png'/>
+                    <img style='height: 40px;' src='http://localhost/LAMS_SE/images/login-icon.png'/>
                     <span> Andrew Daur / Project Director </span>
                     <br><p style='padding-left: 60px;' /><span>email: andrew_daur13@gmail.com</span> 
                 </div>
             </li>
             <li>
                 <div>
-                    <img style='height: 40px;' src='http://localhost/jSnider_LAMS/images/login-icon.png'/>
+                    <img style='height: 40px;' src='http://localhost/LAMS_SE/images/login-icon.png'/>
                     <span> Matthew Lavin / Developer </span>
                     <br><p style='padding-left: 60px;' /><span>email: matt_lavin9@gmail.com</span> 
                 </div>
             </li>
             <li>
                 <div>
-                    <img style='height: 40px;' src='http://localhost/jSnider_LAMS/images/login-icon.png'/>
+                    <img style='height: 40px;' src='http://localhost/LAMS_SE/images/login-icon.png'/>
                     <span> Joshua Snider / Fullstack Developer </span>
                     <br><p style='padding-left: 60px;' /><span>email: joshua_snider42@gmail.com</span> 
                 </div>
             </li>
             <li>
                 <div>
-                    <img style='height: 40px;' src='http://localhost/jSnider_LAMS/images/login-icon.png'/>
+                    <img style='height: 40px;' src='http://localhost/LAMS_SE/images/login-icon.png'/>
                     <span> Elvis Foster / Project Director Consultant </span>
                     <br><p style='padding-left: 60px;' /><span>email: elvis_foster88@gmail.com</span> 
                 </div>

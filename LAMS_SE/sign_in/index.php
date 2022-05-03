@@ -31,7 +31,7 @@
             <table>
                 <th>Please Login:</th>
                 <tr><td>
-                    <form name="login_info" id="login_info" action="http://localhost/jSnider_LAMS/" method="post">
+                    <form name="login_info" id="login_info" action="http://localhost/LAMS_SE/" method="post">
                         <label for="uname">User: </label>
                         <input type="text" id="in_uname" name="in_uname" maxlength="100"></input><br><br>
                         <label for="password" maxlength="100">Password: </label>
