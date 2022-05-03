@@ -29,7 +29,7 @@
         <?php
 			if ( session_id() != "" )
 			{
-				if ( $_SESSION['UNAME'] != "")
+				if (isset($_SESSION['UNAME']) && $_SESSION['UNAME'] != "")
 				{
 					// Does User have priviledges and on what level?
 					$UNAME = "";
@@ -62,7 +62,7 @@
 
 					if ( $UNAME != "") // Test connection
 					{ 
-						require_once('../model/database.php');
+						require_once(__DIR__ . '/../model/database.php');
 						try {
 							$query = "SELECT * FROM flights";
 							$statement = $db->prepare($query);
@@ -78,33 +78,30 @@
 					}
 
 					if ( $matched_user )
-					{
-						echo (
-						"<a href='http://localhost/LAMS_SE/settings'>".
-						"<img style='height: 40px;' src='http://localhost/LAMS_SE/images/login-icon.png' alt='login-icon'></img>".
-						"<p id='logged_in_uname'>".$UNAME.
-						"</p></a>"
-						);
+					{ ?>
+						<a href='http://localhost/LAMS_SE/settings'>
+						<img style='height: 40px;' src='http://localhost/LAMS_SE/images/login-icon.png' alt='login-icon'></img>
+						<p id='logged_in_uname'> <?php echo($UNAME) ?>
+						</p></a>
+<?php
 					}
 					else
-					{
-						echo (
-							"<a href='http://localhost/LAMS_SE/sign_in'>".
-							"<img style='height: 40px;' src='http://localhost/LAMS_SE/images/login-icon.png' alt='login-icon'></img>".
-							"Sign In".
-							"</a>"
-							);
+					{ ?>
+							<a href='http://localhost/LAMS_SE/sign_in'>
+							<img style='height: 40px;' src='http://localhost/LAMS_SE/images/login-icon.png' alt='login-icon'></img>
+							Sign In
+							</a>
+<?php
 					}
 				}
 			}
 			else
-			{
-				echo (
-					"<a href='http://localhost/LAMS_SE/sign_in'>".
-					"<img style='height: 40px;' src='http://localhost/LAMS_SE/images/login-icon.png' alt='login-icon'></img>".
-					"Sign In".
-					"</a>"
-					);
+			{?>
+					<a href='http://localhost/LAMS_SE/sign_in'>
+					<img style='height: 40px;' src='http://localhost/LAMS_SE/images/login-icon.png' alt='login-icon'></img>
+					Sign In
+					</a>
+<?php
 			}
 			
         ?>
