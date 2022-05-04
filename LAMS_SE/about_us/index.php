@@ -12,9 +12,9 @@
        <img src="../images/ADLogo.PNG" alt="Andrew" style="width:100%">
        <div class="container">
          <h2>Andrew Daur</h2>
-         <p class="title">------</p>
-         <p>lorem10</p>
-         <p>ad1297@usnh.com</p>
+         <p class="title"> <b>Project Director</b> </p>
+         <p>Phone :</p>
+         <p>Email : ad1297@usnh.com</p>
          <p><input type="button" value="Contact"></input> </p>
        </div>
      </div>
@@ -26,9 +26,9 @@
        <img src="../images/MLLogo.PNG" alt="Matthew" style="width:100%">
        <div class="container">
          <h2>Matthew Lavin</h2>
-         <p class="title">------</p>
-         <p>lorem10</p>
-         <p>ad1297@usnh.com</p>
+         <p class="title"> <b>Developer</b> </p>
+         <p>Phone :</p>
+         <p>Email : matt_lavin9@gmail.com</p>
          <p><input type="button" value="Contact"></input> </p>
         </div>
      </div>
@@ -40,9 +40,9 @@
        <img src="../images/JSLogo.PNG" alt="Josh" style="width:100%">
        <div class="container">
          <h2>Joshua Snider</h2>
-         <p class="title">------</p>
-         <p>lorem10</p>
-         <p>ad1297@usnh.com</p>
+         <p class="title"> <b>Fullstack Developer</b> </p>
+         <p>Phone :</p>
+         <p>Email : joshua_snider42@gmail.com</p>
          <p><input type="button" value="Contact"></input> </p>
        </div>
       </div>

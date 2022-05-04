@@ -44,11 +44,14 @@
     { 
         require_once('../model/database.php');
         try {
-            $query = "SELECT * FROM flights";
-            $statement = $db->prepare($query);
-            $statement->execute();
-            $result = $statement->fetch();
-            $statement->closeCursor();
+            if ( !empty($db) )
+            {
+                $query = "SELECT * FROM flights";
+                $statement = $db->prepare($query);
+                $statement->execute();
+                $result = $statement->fetch();
+                $statement->closeCursor();
+            }
 
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
@@ -137,6 +140,7 @@
             <span>Wrong username and password combination, here is a preview of what this system looks like, 
                 click on the '<< BACK' or 'LOG OUT' buttons to try again:</span>
             <br>
+            <input type='button' value='LOG OUT' onclick='window.location = ".'"../settings/log_out.php";'."'></input>
             <img src='../images/product_manager_preview.jfif' />
             <br>"
             );

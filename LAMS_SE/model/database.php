@@ -31,8 +31,8 @@
             echo ("<script type='text/javascript'> console.log('[INFO] No user session found, variable fallback.' )</script> )" );
         }
     } catch (PDOException $e) {
-        $error_message = $e->getMessage();
-        include('../errors/database_error.php');
-        exit();
+        $error_message = $e;
+//		$e->getMessage();
+//      include('../errors/database_error.php');
     }
 ?>

@@ -10,6 +10,33 @@
 <main class="c-services c-services-background">
     <h1 style="display: inline-block; margin-right: 20%;">Menu</h1> <h1 style="display: inline-block; color: rgb(0,0,0);">Because Bruce Cant Drive.</h1>
     <ul style="width:115%; overflow:hidden;"> <!-- https://stackoverflow.com/questions/12802482/javascript-onclick-redirect--> 
+        <!-- Select Available Actions based on User Access Level -->
+        <?php
+            $UROLE_ID = -1;
+            if ( isset($_SESSION['UROLE_ID']) )
+            { $UROLE_ID = $_SESSION['UROLE_ID']; }
+
+            if ( $UROLE_ID == 0)
+            {
+
+            }
+            else if ( $UROLE_ID == 1)
+            {
+                
+            }
+            else if ( $UROLE_ID == 2)
+            {
+                
+            }
+            else if ( $UROLE_ID == 3)
+            {
+                
+            }
+            else if ( $UROLE_ID == 999)
+            {
+                // ADMIN PRIVLEDGE, NO LIMIT
+            }
+        ?>
         <li class="c-services__item" onclick="window.location = 'product_manager';">
             <a href="product_manager">Flight Manager [ADMIN]</a>
             <p style="display:inline-block; width:20px;"></p> <!-- Using as a way to insert specific amount of whitespace -->
