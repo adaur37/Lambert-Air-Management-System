@@ -21,7 +21,8 @@
         else
         { $_SESSION['UPASSWD'] = ""; }
 
-        if ( isset($_SESSION['UNAME']) AND isset($_SESSION['UPASSWD']) AND !empty($_SESSION['UNAME']) )
+        if ( isset($_SESSION['UNAME']) AND isset($_SESSION['UPASSWD']) AND 
+            !empty($_SESSION['UNAME']) AND $_SESSION['UROLE_ID']>=999 ) // 999 defined as Admin role_id in database user_roles table.
         { header("Location: manager_home.php" ); }
         else
         { header("Location: ../sign_in/index.php" ); }

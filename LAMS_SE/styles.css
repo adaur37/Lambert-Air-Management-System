@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import "main.css";
 /* Services Section | Learn CSS Garden
  * author: Ahmad Nasr : https://codepen.io/ahmadnasr 
  * CSS layout for professional stylized 'services' page for a company promoting services
@@ -380,7 +379,8 @@ main table tr {
   transform: matrix(1, -0.18, 0, 1, 0, 0);
  /* background-image: var(--bg-services); */
 }
-.c-services__item, .c-services__item_b {
+
+.c-services__item, .c-services__item_b, .c-services__item_disable {
   display: inline-block;
   background: #fff;
   padding: calc(var(--s2) - 0.6rem) var(--s1);
@@ -394,13 +394,13 @@ main table tr {
   z-index: 1;
 }
 
-.c-services__item, .c-services__item_b h3 {
+.c-services__item, .c-services__item_b, .c-services__item_disable h3 {
   color: var(--color-brand-primary);
  /* font-size: var(--s1); */
   line-height: 1.2;
 }
 
-.c-services__item:after, .c-services__item_b:after {
+.c-services__item:after, .c-services__item_b:after, .c-services__item_disable:after {
   content: "";
   display: block;
   position: absolute;
@@ -427,9 +427,10 @@ main table tr {
 }
 
 .c-services__item p, .c-services__item_b p {
-  margin-top: var(--s-1);
-  font-weight: 400;
-  color: hsl(250deg, 7%, 46%);
+ /* margin-top: var(--s-1); */
+  font-weight: bold;
+  font-size: 13pt;
+  color:rgb(57, 20, 175);
 }
 .c-services__item:hover {
   background-color: var(--color-brand-accent);
@@ -445,9 +446,12 @@ main table tr {
 .c-services__item:hover p, .c-services__item_b:hover p {
   color: hsla(0deg, 0%, 100%, 0.8);
 }
-.c-services__item:hover:after, .c-services__item_b:hover:after {
+.c-services__item:hover:after, .c-services__item_b:hover:after, .c-services__item_disable::after {
   background-image: url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjZmI2ZjNjIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGRhdGEtbmFtZT0iTGF5ZXIgMSIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHg9IjBweCIgeT0iMHB4Ij48dGl0bGU+NTI8L3RpdGxlPjxwYXRoIGQ9Ik04MS4zMDMyOSwzOC41MjkzOUExNC4wMTgsMTQuMDE4LDAsMSwwLDYxLjQ3NywxOC43MDY3MUw0Ny4wMDMxNSwzMy4xNzkxNGExNC4wMzAzNywxNC4wMzAzNywwLDAsMCwwLDE5LjgyMTcxLDQuODAxMTMsNC44MDExMywwLDAsMS02Ljc4OTc5LDYuNzg5ODcsMjMuNjQzMjcsMjMuNjQzMjcsMCwwLDEsMC0zMy40MDE0NUw1NC42ODcyMSwxMS45MTY4NEEyMy42MjAzLDIzLjYyMDMsMCwwLDEsODguMDkzMDgsNDUuMzE5MjdMODAuOTIzOCw1Mi40ODcxMWE0LjgwMTE0LDQuODAxMTQsMCwwLDEtNi43ODk4LTYuNzg5ODdaTTExLjkwNzQxLDg4LjA5MzlhMjMuNjUwNTMsMjMuNjUwNTMsMCwwLDAsMzMuNDA1ODYtLjAwMUw1OS43ODY2NCw3My42MjE0N2EyMy42MTU4MywyMy42MTU4MywwLDAsMCwwLTMzLjQwMTQ1LDQuODAxMTQsNC44MDExNCwwLDAsMC02Ljc4OTc5LDYuNzg5ODgsMTQuMDE1MzEsMTQuMDE1MzEsMCwwLDEsMCwxOS44MjI2OEwzOC41MjM0OCw4MS4zMDRBMTQuMDE4LDE0LjAxOCwwLDEsMSwxOC42OTcyLDYxLjQ4MTM1TDI1Ljg2Niw1NC4zMTM1YTQuODAxMTQsNC44MDExNCwwLDAsMC02Ljc4OTgtNi43ODk4N2wtNy4xNjg3OSw3LjE2Nzg1QTIzLjY0NDg5LDIzLjY0NDg5LDAsMCwwLDExLjkwNzQxLDg4LjA5MzlaIj48L3BhdGg+PC9zdmc+");
+}
 
+.c-services__item_disable:after{
+  background-color: #999999;
 }
 
 .c-services__item:hover:after {
@@ -456,6 +460,21 @@ main table tr {
 
 .c-services__item_b:hover:after {
   background-color: #fff;
+}
+
+.c-services__item_disable{
+  background-color: #696969;
+  display: inline-block;
+}
+
+.c-services__item_disable p{
+  color: #999999;
+  font-weight: bold;
+  font-size: 13pt;
+}
+
+.c-services__item_disable a:hover{
+  color: #999999;
 }
 
 .half-column {
@@ -473,6 +492,15 @@ main table tr {
 .home_benefits_img {
   max-width: 250px;
   max-height: 250px;
+}
+
+.settings-home{
+  background-color: rgb(125, 105, 189);
+  color: rgb(	255, 170, 0);
+}
+
+.settings-home span{
+  color: #fff;
 }
 
 /* ID DEFINITIONS */

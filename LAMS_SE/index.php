@@ -8,39 +8,192 @@
 *////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 <main class="c-services c-services-background">
-    <h1 style="display: inline-block; margin-right: 20%;">Menu</h1> <h1 style="display: inline-block; color: rgb(0,0,0);">Because Bruce Cant Drive.</h1>
-    <ul style="width:115%; overflow:hidden;"> <!-- https://stackoverflow.com/questions/12802482/javascript-onclick-redirect--> 
+    <?php // initialize user role storage.
+        $UROLE_ID = -1;
+        $urole_title = "";
+        if ( isset($_SESSION['UROLE_ID']) )
+        { $UROLE_ID = $_SESSION['UROLE_ID']; }
+    ?>
+    <h1 style="display: inline-block; margin-right: 20%;">Menu >> <span style='font-size: 14pt;'>User Tier: </span><span style='font-size: 14pt;' id='access_level'>Unregistered</span></h1> <h2 style="display: inline-block; color: rgb(0,0,0);">Because Bruce Cant Drive.</h2>
+    <ul style="width:108%; height: 300px; padding: 0px; overflow-x:auto;"> <!-- https://stackoverflow.com/questions/12802482/javascript-onclick-redirect--> 
+        <li id='default_dashboard' class='c-services__item_disable' >
+            <p >In/Out Dashboard</p>
+            <p style="display:inline-block; width:20px;"></p> <!-- Using as a way to insert specific amount of whitespace -->
+        </li>
+        <li id='scheduler_dashboard' class='c-services__item_disable' >
+            <p >Scheduler Dashboard</p>
+            <p style="display:inline-block; width:20px;"></p> <!-- Using as a way to insert specific amount of whitespace -->
+        </li>
+        <li id='aircontroller_mgmt' class='c-services__item_disable' >
+            <p >Manage Traffic</p>
+            <p style="display:inline-block; width:20px;"></p> <!-- Using as a way to insert specific amount of whitespace -->
+        </li>
+        <li id='management_dashboard' class='c-services__item_disable' >
+            <p >Management Dashboard</p>
+            <p style="display:inline; width:20px;"></p> <!-- Using as a way to insert specific amount of whitespace -->
+        </li>
+        <li id='admin_flightmgmt' class='c-services__item_disable' >
+            <p >Manage ALL [ADMIN]</p>
+            <p style="display:inline-block; width:20px;"></p> <!-- Using as a way to insert specific amount of whitespace -->
+        </li>
+    
         <!-- Select Available Actions based on User Access Level -->
         <?php
-            $UROLE_ID = -1;
-            if ( isset($_SESSION['UROLE_ID']) )
-            { $UROLE_ID = $_SESSION['UROLE_ID']; }
 
-            if ( $UROLE_ID == 0)
+            if ( !empty($db) ) // Retrieve Role Title from DB, then use to set controls as 'available' to the user
             {
+                try {
+                    if ( file_exists('../model/database.php') )
+                    { require_once('../model/database.php'); }
+                    else
+                    { require_once('./model/database.php'); }
 
+                    if ( !empty($db) )
+                    {
+                        $query = "SELECT role_title FROM user_roles WHERE role_id = '".$UROLE_ID."'";
+                        $statement = $db->prepare($query);
+                        $statement->execute();
+                        $urole_title = $statement->fetch();
+                        $statement->closeCursor();
+
+                        $urole_title = $urole_title['role_title'];
+                        echo("<script type='text/javascript'> document.getElementById('access_level').innerHTML = '".$urole_title."' </script>");
+                    }
+                } catch (PDOException $e) {
+                    $error_message = $e;
+//						$e->getMessage();
+                }
             }
+            // All levels defined by db-> 'user_roles' table.
+            // Basic Access Level
+            if ( $UROLE_ID == 0) // I Could be more flexible with this and have a query to check if role_title that matched role_id contains a keywword like 'Default', 'Scheduler', 'Management', 'Admin', etc.
+            {
+                // Enable Default Dashboard
+                echo ("<script type='text/javascript'> 
+                    flightmgmt_button = document.getElementById('default_dashboard'); 
+                    flightmgmt_button.className = 'c-services__item'; 
+                    flightmgmt_button.setAttribute('onclick',"."'window.location = '+".'"'."'./product_manager/default_dashboard.php'".'"'.");
+                     </script>"
+                    );
+            }
+            // Scheduler
             else if ( $UROLE_ID == 1)
             {
-                
+                // Enable Default Dashboard
+                echo ("<script type='text/javascript'> 
+                    flightmgmt_button = document.getElementById('default_dashboard'); 
+                    flightmgmt_button.className = 'c-services__item'; 
+                    flightmgmt_button.setAttribute('onclick',"."'window.location = '+".'"'."'./product_manager/default_dashboard.php'".'"'.");
+                     </script>"
+                    );
+
+                // Enable Scheduler Dashboard
+                echo ("<script type='text/javascript'> 
+                    flightmgmt_button = document.getElementById('scheduler_dashboard'); 
+                    flightmgmt_button.className = 'c-services__item'; 
+                    flightmgmt_button.setAttribute('onclick',"."'window.location = '+".'"'."'./product_manager/scheduler_dashboard.php'".'"'.");
+                     </script>"
+                    );
             }
+            // Air Traffic Controller
             else if ( $UROLE_ID == 2)
             {
-                
+                // Enable Default Dashboard
+                echo ("<script type='text/javascript'> 
+                    flightmgmt_button = document.getElementById('default_dashboard'); 
+                    flightmgmt_button.className = 'c-services__item'; 
+                    flightmgmt_button.setAttribute('onclick',"."'window.location = '+".'"'."'./product_manager/default_dashboard.php'".'"'.");
+                     </script>"
+                    );
+
+                // Enable Traffic Controller Dashboard
+                echo ("<script type='text/javascript'> 
+                    flightmgmt_button = document.getElementById('aircontroller_mgmt'); 
+                    flightmgmt_button.className = 'c-services__item'; 
+                    flightmgmt_button.setAttribute('onclick',"."'window.location = '+".'"'."'./product_manager/traffic_dashboard.php'".'"'.");
+                     </script>"
+                    );
             }
+            // Management
             else if ( $UROLE_ID == 3)
             {
-                
+                // Enable Default Dashboard
+                echo ("<script type='text/javascript'> 
+                    flightmgmt_button = document.getElementById('default_dashboard'); 
+                    flightmgmt_button.className = 'c-services__item'; 
+                    flightmgmt_button.setAttribute('onclick',"."'window.location = '+".'"'."'./product_manager/default_dashboard.php'".'"'.");
+                     </script>"
+                    );
+
+                // Enable Scheduler Dashboard
+                echo ("<script type='text/javascript'> 
+                    flightmgmt_button = document.getElementById('scheduler_dashboard'); 
+                    flightmgmt_button.className = 'c-services__item'; 
+                    flightmgmt_button.setAttribute('onclick',"."'window.location = '+".'"'."'./product_manager/scheduler_dashboard.php'".'"'.");
+                     </script>"
+                    );
+
+                // Enable Traffic Controller Dashboard
+                echo ("<script type='text/javascript'> 
+                    flightmgmt_button = document.getElementById('aircontroller_mgmt'); 
+                    flightmgmt_button.className = 'c-services__item'; 
+                    flightmgmt_button.setAttribute('onclick',"."'window.location = '+".'"'."'./product_manager/traffic_dashboardphp'".'"'.");
+                     </script>"
+                    );
+
+                // Enable Management Dashboard
+                echo ("<script type='text/javascript'> 
+                flightmgmt_button = document.getElementById('management_dashboard'); 
+                flightmgmt_button.className = 'c-services__item'; 
+                flightmgmt_button.setAttribute('onclick',"."'window.location = '+".'"'."'./product_manager/management_dashboard.php'".'"'.");
+                 </script>"
+                );
             }
+            // Admin
             else if ( $UROLE_ID == 999)
             {
                 // ADMIN PRIVLEDGE, NO LIMIT
+                // Enable Default Dashboard
+                echo ("<script type='text/javascript'> 
+                    flightmgmt_button = document.getElementById('default_dashboard'); 
+                    flightmgmt_button.className = 'c-services__item'; 
+                    flightmgmt_button.setAttribute('onclick',"."'window.location = '+".'"'."'./product_manager/default_dashboard.php'".'"'.");
+                     </script>"
+                    );
+
+                // Enable Scheduler Dashboard
+                echo ("<script type='text/javascript'> 
+                flightmgmt_button = document.getElementById('scheduler_dashboard'); 
+                flightmgmt_button.className = 'c-services__item'; 
+                flightmgmt_button.setAttribute('onclick',"."'window.location = '+".'"'."'./product_manager/scheduler_dashboard.php'".'"'.");
+                 </script>"
+                );
+
+                // Enable Traffic Controller Dashboard
+                echo ("<script type='text/javascript'> 
+                    flightmgmt_button = document.getElementById('aircontroller_mgmt'); 
+                    flightmgmt_button.className = 'c-services__item'; 
+                    flightmgmt_button.setAttribute('onclick',"."'window.location = '+".'"'."'./product_manager/traffic_dashboard.php'".'"'.");
+                     </script>"
+                    );
+
+                // Enable Management Dashboard
+                echo ("<script type='text/javascript'> 
+                flightmgmt_button = document.getElementById('management_dashboard'); 
+                flightmgmt_button.className = 'c-services__item'; 
+                flightmgmt_button.setAttribute('onclick',"."'window.location = '+".'"'."'./product_manager/manager_dashboard.php'".'"'.");
+                 </script>"
+                );
+                    
+                // Enable ADMIN Dashboard
+                echo ("<script type='text/javascript'> 
+                    flightmgmt_button = document.getElementById('admin_flightmgmt'); 
+                    flightmgmt_button.className = 'c-services__item'; 
+                    flightmgmt_button.setAttribute('onclick',"."'window.location = '+".'"'."'./product_manager/index.php'".'"'.");
+                     </script>"
+                    );
             }
         ?>
-        <li class="c-services__item" onclick="window.location = 'product_manager';">
-            <a href="product_manager">Flight Manager [ADMIN]</a>
-            <p style="display:inline-block; width:20px;"></p> <!-- Using as a way to insert specific amount of whitespace -->
-        </li>
     </ul>
     <div class="half-column">
         <h1> Why LAMS? </h1>
